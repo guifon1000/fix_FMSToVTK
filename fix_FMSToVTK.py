@@ -30,7 +30,9 @@ def run_FMSToVTK(name):
                 inPoints=False
                 iEnd = i
         for i in range(iStart,iEnd+1):
-            points+=f[i].replace(') (',' ').replace(')','').replace('(','')
+            points+=f[i].replace(')',' ').replace('(',' ')
+        while '  ' in points:
+            points = points.replace('  ',' ')
         fo = open(li,'w')
         for l in f[:iStart]:
             fo.write(l)
